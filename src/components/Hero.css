@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+.main-container {
+    font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
+    Arial, sans-serif;
+
+    @apply flex w-full h-full justify-center items-center;
+}
+
+.background {
+    @apply fixed top-0 left-0 w-full h-full object-cover;
+}
+
+.hero-container {
+    @apply flex w-[90%] xl:w-5xl h-1/2 z-10 items-center justify-center rounded-2xl bg-[#141B2E]/80;
+}
+
+.hero-title {
+    @apply text-base xl:text-4xl font-bold uppercase;
+}
