@@ -74,7 +74,7 @@ const Hero = () => {
     const fullText = `Leon_${country}_CAS_PPC_${trackerDescription}`;
     
     navigator.clipboard.writeText(fullText).then(() => {
-      alert("Texto copiado al portapapeles");
+      alert("Tracker description copied.");
     });
   };
 
