@@ -64,6 +64,12 @@ const Hero = () => {
 
   // Function to copy the tracker description to the clipboard
   const copyToClipboard = () => {
+    // Check if the "EXTRA INFO" is empty or contains only spaces
+    if (!extraInfo.trim()) { 
+      alert("The field 'EXTRA INFO' cannot be empty.");
+      return; // Don't proceed with copying if the field is invalid
+    }
+
     // Concatenate the brand, country, vertical, and traffic source with the extra info
     const fullText = `Leon_${country}_CAS_PPC_${trackerDescription}`;
     
@@ -74,7 +80,7 @@ const Hero = () => {
 
   return (
     <div className="main-container">
-      <img className="background" src={background.src} alt="" fetchpriority="high" />
+      <img className="background" src={background.src} alt="Background" fetchpriority="high" />
       <main className="hero-container">
         <h1 className="hero-title">Tracker Description Generator</h1>
 
@@ -136,7 +142,7 @@ const Hero = () => {
         <section className="flex flex-col w-[90%]">
           <h2>TRACKER DESCRIPTION:</h2>
           <code>Leon_{country}_CAS_PPC_{trackerDescription}</code>
-          <button onClick={copyToClipboard} disabled={!trackerDescription}>
+          <button onClick={copyToClipboard}>
             COPY
           </button>
         </section>
