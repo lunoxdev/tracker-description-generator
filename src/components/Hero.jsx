@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import background from "../assets/background.svg";
 import "./Hero.css";
 
@@ -25,6 +25,27 @@ const Hero = () => {
     { code: "TR", name: "Turkey" },
     { code: "TZ", name: "Tanzania" },
   ];
+
+  // Load the saved values from localStorage when the component mounts
+  useEffect(() => {
+    const savedCountry = localStorage.getItem("selectedCountry");
+    const savedExtraInfo = localStorage.getItem("extraInfo");
+
+    if (savedCountry) {
+      setCountry(savedCountry);
+    }
+
+    if (savedExtraInfo) {
+      setExtraInfo(savedExtraInfo);
+      setTrackerDescription(savedExtraInfo); // Update tracker description with the saved extra info
+    }
+  }, []);
+
+  // Save the values to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem("selectedCountry", country);
+    localStorage.setItem("extraInfo", extraInfo);
+  }, [country, extraInfo]);
 
   // Function to handle the change in the input of "EXTRA INFO"
   const handleExtraInfoChange = (e) => {
