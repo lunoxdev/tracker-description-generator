@@ -78,6 +78,12 @@ const Hero = () => {
     });
   };
 
+  // Function to clear the "EXTRA INFO" input field
+  const clearExtraInfo = () => {
+    setExtraInfo(""); // Clear the extra info field
+    setTrackerDescription(""); // Optionally, clear the tracker description as well
+  };
+
   return (
     <div className="main-container">
       <img className="background" src={background.src} alt="Background" fetchpriority="high" />
@@ -145,6 +151,9 @@ const Hero = () => {
           <button onClick={copyToClipboard}>
             COPY
           </button>
+          
+          {/* DELETE BUTTON */}
+          <button onClick={clearExtraInfo}>DELETE</button>
         </section>
       </main>
     </div>
