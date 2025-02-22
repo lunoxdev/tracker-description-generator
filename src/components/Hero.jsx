@@ -9,15 +9,15 @@ import "./Hero.css";
 
 const Hero = () => {
   const [extraInfo, setExtraInfo] = useState("");
-  const [country, setCountry] = useState("AU");
+  const [country, setCountry] = useState("BR");
   const [brand, setBrand] = useState("Leon");
   const [trackerDescription, setTrackerDescription] = useState("");
   const [vertical, setVertical] = useState("CAS");
   const [trafficSource, setTrafficSource] = useState("PPC");
 
   const countries = [
-    { code: "AU", name: "Australia" },
     { code: "BR", name: "Brazil" },
+    { code: "AU", name: "Australia" },
     { code: "DE", name: "Germany" },
     { code: "FR", name: "France" },
     { code: "GR", name: "Greece" },
