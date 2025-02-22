@@ -114,25 +114,25 @@ const Hero = () => {
         <h1 className="hero-title">Tracker Description Generator</h1>
 
         {/* DESCRIPTION FORM */}
-        <section className="grid grid-cols-5 w-[90%] h-1/4 items-center text-center px-5 rounded-md bg-gradient-to-r from-[#11697f] via-[#3b4f84] to-[#26395f]">
+        <section className="grid grid-cols-5 w-[95%] items-center text-center p-6 rounded-md bg-gradient-to-r from-[#11697f] via-[#3b4f84] to-[#26395f]">
           {/* BRAND */}
-          <div>
+          <div className="flex flex-col items-center space-y-1">
             <input
               type="text"
               value="BRAND"
               disabled
-              className="input-label text-center font-semibold"
+              className="input-label text-center font-semibold text-lg"
               />
-              <span>Leon</span>
+              <span className="p-1">Leon</span>
           </div>
 
           {/* COUNTRY */}
-          <div>
-            <span className="font-semibold">COUNTRY</span>
+          <div className="flex flex-col items-center space-y-3">
+            <span className="font-semibold text-lg">COUNTRY</span>
             <select
               value={country}
               onChange={handleCountryChange}
-              className="country-select text-center border bg-[#141B2E] rounded-md p-1"
+              className="country-select text-center border-[#21d2fe] bg-[#141B2E] rounded-md p-1"
             >
               {countries.map((countryObj) => (
                 <option key={countryObj.code} value={countryObj.code}>
@@ -143,36 +143,36 @@ const Hero = () => {
           </div>
 
           {/* VERTICAL */}
-          <div>
-            <span className="font-semibold">VERTICAL</span>
+         <div className="flex flex-col items-center space-y-3">
+            <span className="font-semibold text-lg">VERTICAL</span>
             <input
               type="text"
               value="CAS"
               disabled
-              className="input-label text-center"
+              className="input-label text-center p-1"
             />
           </div>
 
           {/* TRAFFIC SOURCE */}
-          <div>
-            <span className="font-semibold">TRAFFIC SOURCE</span>
+          <div className="flex flex-col items-center space-y-3">
+            <span className="font-semibold text-lg">TRAFFIC SOURCE</span>
             <input
               type="text"
               value="PPC"
               disabled
-              className="input-label text-center"
+              className="input-label text-center p-1"
             />
           </div>
 
           {/* EXTRA INFO */}
-          <div>
-            <span className="font-semibold">EXTRA INFO</span>
+          <div className="flex flex-col items-center space-y-3">
+            <span className="font-semibold text-lg">EXTRA INFO</span>
             <input
               type="text"
               value={extraInfo}
               onChange={handleExtraInfoChange}
               placeholder="Required"
-              className={`extra-info-input text-center py-1 border rounded-md bg-[#141B2E] ${!extraInfo.trim() ? 'border-red-500' : ''}`}
+              className="extra-info-input text-center py-1 border rounded-md bg-[#141B2E]"
             />
           </div>
         </section>
@@ -180,18 +180,25 @@ const Hero = () => {
         {/* TRACKER DESCRIPTION */}
         <section className="flex flex-col justify-center items-center w-[90%] space-y-5">
           {/* COPY BUTTON */}
-         <button onClick={copyToClipboard} className="w-1/2 p-3 rounded-xl text-center flex items-center justify-between bg-gradient-to-r from-[#26395f] via-[#11697f] via-60% to-[#141B2E] transition-all duration-300 hover:opacity-80 hover:ring-2 hover:ring-neutral-800 hover:ring-offset-2"> 
-          {/* Text */}
-          Leon_{country}_CAS_PPC_{trackerDescription}
-          {/* SVG Icon */}
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 15 15" className="mr-3">
-            <path fill="#ffffff" fill-rule="evenodd" d="M1 9.5A1.5 1.5 0 0 0 2.5 11H4v-1H2.5a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5V4H5.5A1.5 1.5 0 0 0 4 5.5v7A1.5 1.5 0 0 0 5.5 14h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 12.5 4H11V2.5A1.5 1.5 0 0 0 9.5 1h-7A1.5 1.5 0 0 0 1 2.5zm4-4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5z" clip-rule="evenodd"/>
-          </svg>
-        </button>
+          <button 
+            onClick={copyToClipboard} 
+            className="w-full max-w-[400px] p-3 rounded-xl text-center flex items-center justify-between bg-black border-2 border-[#21d2fe] transition-all duration-300 hover:opacity-80 hover:ring-2 hover:ring-[#21d2fe] hover:ring-offset-2"
+          >
+            {/* Texto centrado */}
+            <span className="flex-1 text-center truncate">
+              Leon_{country}_CAS_PPC_{trackerDescription}
+            </span>
 
+            {/* SVG a la derecha */}
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 15 15" className="ml-3">
+              <path fill="#ffffff" fillRule="evenodd" d="M1 9.5A1.5 1.5 0 0 0 2.5 11H4v-1H2.5a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5V4H5.5A1.5 1.5 0 0 0 4 5.5v7A1.5 1.5 0 0 0 5.5 14h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 12.5 4H11V2.5A1.5 1.5 0 0 0 9.5 1h-7A1.5 1.5 0 0 0 1 2.5zm4-4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5z" clipRule="evenodd"/>
+            </svg>
+          </button>
           
           {/* DELETE BUTTON */}
           <button onClick={clearExtraInfo} className="text-black hover:underline">CLEAR</button>
+
+          {/* NOTIFICATIONS */}
           <Toaster />
         </section>
       </main>
