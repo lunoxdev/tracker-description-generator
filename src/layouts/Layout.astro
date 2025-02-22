@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Analytics from "@vercel/analytics/astro";
 ---
 
 <!doctype html>
@@ -12,6 +13,7 @@ import "../styles/global.css";
     <title>Tracker Description Generator</title>
   </head>
   <body>
+    <Analytics />
     <slot />
   </body>
 </html>
