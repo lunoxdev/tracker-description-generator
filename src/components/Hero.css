@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 .main-container {
-    font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
+  font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
     Arial, sans-serif;
 
-    @apply flex w-full h-full justify-center items-center;
+  @apply flex w-full h-full justify-center items-center;
 }
 
 .background {
-    @apply fixed top-0 left-0 w-full h-1/2 object-cover;
+  @apply fixed top-0 left-0 w-full h-1/2 object-cover;
 }
 
 .hero-container {
-    @apply flex flex-col w-[90%] xl:w-5xl h-auto z-10 items-center justify-center rounded-2xl p-3 bg-white;
+  @apply flex flex-col w-[90%] xl:w-5xl h-auto z-10 items-center justify-center rounded-2xl p-3 space-y-5 bg-white;
 }
 
 .hero-title {
-    @apply w-[80%] text-2xl xl:text-5xl text-center text-pretty font-extrabold uppercase bg-gradient-to-r from-[#6D30FF] via-[#595CFE] to-[#2FB3FE] bg-clip-text text-transparent;
+  @apply w-[80%] text-2xl xl:text-5xl text-center text-pretty font-extrabold uppercase bg-gradient-to-r from-[#6D30FF] via-[#595CFE] to-[#2FB3FE] bg-clip-text text-transparent;
 }
