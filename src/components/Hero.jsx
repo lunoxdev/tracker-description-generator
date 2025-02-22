@@ -63,6 +63,8 @@ const Hero = () => {
     const savedCountry = localStorage.getItem("selectedCountry");
     const savedExtraInfo = localStorage.getItem("extraInfo");
     const savedBrand = localStorage.getItem("brand");
+    const savedVertical = localStorage.getItem("vertical");
+    const savedTrafficSource = localStorage.getItem("trafficSource");
 
     if (savedCountry) setCountry(savedCountry);
     if (savedExtraInfo) {
@@ -70,12 +72,18 @@ const Hero = () => {
       setTrackerDescription(savedExtraInfo);
     }
     if (savedBrand) setBrand(savedBrand);
+    if (savedVertical) setVertical(savedVertical);
+    if (savedTrafficSource) setTrafficSource(savedTrafficSource);
   }, []);
 
   useEffect(() => {
+    // Guardar valores en localStorage cuando cambian
     localStorage.setItem("selectedCountry", country);
     localStorage.setItem("extraInfo", extraInfo);
-  }, [country, extraInfo]);
+    localStorage.setItem("brand", brand);
+    localStorage.setItem("vertical", vertical);
+    localStorage.setItem("trafficSource", trafficSource);
+  }, [country, extraInfo, brand, vertical, trafficSource]);
 
   const handleExtraInfoChange = (e) => {
     const newExtraInfo = e.target.value;
