@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import background from "../assets/background.svg";
 import "./Hero.css";
 
+import toast, { Toaster } from 'react-hot-toast';
+
 const Hero = () => {
   const [extraInfo, setExtraInfo] = useState(""); // State to handle the value of "EXTRA INFO"
   const [country, setCountry] = useState("AU"); // Default country set to "AU"
@@ -66,7 +68,14 @@ const Hero = () => {
   const copyToClipboard = () => {
     // Check if the "EXTRA INFO" is empty or contains only spaces
     if (!extraInfo.trim()) { 
-      alert("The field 'EXTRA INFO' cannot be empty.");
+      
+      const notify = () => toast.error('The field "EXTRA INFO" cannot be empty.', {
+        style: {
+          background: "#285a9e",
+          color: "#ffffff",
+        },
+      });
+      notify();
       return; // Don't proceed with copying if the field is invalid
     }
 
@@ -74,12 +83,26 @@ const Hero = () => {
     const fullText = `Leon_${country}_CAS_PPC_${trackerDescription}`;
     
     navigator.clipboard.writeText(fullText).then(() => {
-      alert("Tracker description copied.");
+      const notify = () => toast.success('Tracker description copied.', {
+         style: {
+          background: "#285a9e",
+          color: "#ffffff",
+          },
+      });
+      notify();
     });
   };
 
   // Function to clear the "EXTRA INFO" input field
   const clearExtraInfo = () => {
+      const notify = () => toast('The field "EXTRA INFO" has been cleared.', {
+        style: {
+          background: "#285a9e",
+          color: "#ffffff",
+          },
+        icon: '⚠️',
+        });
+      notify();
     setExtraInfo(""); // Clear the extra info field
     setTrackerDescription(""); // Optionally, clear the tracker description as well
   };
@@ -168,7 +191,8 @@ const Hero = () => {
 
           
           {/* DELETE BUTTON */}
-          <button onClick={clearExtraInfo} className="text-black hover:underline">DELETE</button>
+          <button onClick={clearExtraInfo} className="text-black hover:underline">CLEAR</button>
+          <Toaster />
         </section>
       </main>
     </div>
