@@ -15,6 +15,7 @@ const Hero = () => {
   const [vertical, setVertical] = useState("CAS");
   const [trafficSource, setTrafficSource] = useState("PPC");
 
+  const brands = [{ name: "Leon" }, { name: "Slott" }, { name: "Twin" }];
   const countries = [
     { code: "BR", name: "Brazil" },
     { code: "AU", name: "Australia" },
@@ -32,8 +33,6 @@ const Hero = () => {
     { code: "TR", name: "Turkey" },
     { code: "TZ", name: "Tanzania" },
   ];
-
-  const brands = [{ name: "Leon" }, { name: "Slott" }, { name: "Twin" }];
   const verticals = [{ name: "CAS" }, { name: "SPB" }, { name: "CAS+SPB" }];
   const trafficSources = [
     { name: "ASO" },
