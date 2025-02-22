@@ -114,21 +114,21 @@ const Hero = () => {
         <h1 className="hero-title">Tracker Description Generator</h1>
 
         {/* DESCRIPTION FORM */}
-        <section className="grid grid-cols-1 md:grid-cols-5 w-[95%] items-center text-center p-6 gap-5 rounded-md bg-gradient-to-r from-[#11697f] via-[#3b4f84] to-[#26395f]">
+        <section className="grid grid-cols-1 md:grid-cols-5 w-[95%] items-center text-center p-6 gap-2 rounded-md bg-gradient-to-r from-[#11697f] via-[#3b4f84] to-[#26395f]">
           {/* BRAND */}
           <div className="flex flex-col items-center space-y-0 md:space-y-1">
             <input
               type="text"
               value="BRAND"
               disabled
-              className="input-label text-center font-semibold text-lg"
+              className="input-label text-center font-semibold text-base md:text-lg"
               />
               <span className="p-1">Leon</span>
           </div>
 
           {/* COUNTRY */}
           <div className="flex flex-col items-center space-y-1 md:space-y-3">
-            <span className="font-semibold text-lg">COUNTRY</span>
+            <span className="font-semibold text-base md:text-lg">COUNTRY</span>
             <select
               value={country}
               onChange={handleCountryChange}
@@ -144,7 +144,7 @@ const Hero = () => {
 
           {/* VERTICAL */}
          <div className="flex flex-col items-center space-y-1 md:space-y-3">
-            <span className="font-semibold text-lg">VERTICAL</span>
+            <span className="font-semibold text-base md:text-lg">VERTICAL</span>
             <input
               type="text"
               value="CAS"
@@ -155,7 +155,7 @@ const Hero = () => {
 
           {/* TRAFFIC SOURCE */}
           <div className="flex flex-col items-center space-y-1 md:space-y-3">
-            <span className="font-semibold text-lg">TRAFFIC SOURCE</span>
+            <span className="font-semibold text-base md:text-lg">TRAFFIC SOURCE</span>
             <input
               type="text"
               value="PPC"
@@ -166,7 +166,7 @@ const Hero = () => {
 
           {/* EXTRA INFO */}
           <div className="flex flex-col items-center space-y-1 md:space-y-3">
-            <span className="font-semibold text-lg">EXTRA INFO</span>
+            <span className="font-semibold text-base md:text-lg">EXTRA INFO</span>
             <input
               type="text"
               value={extraInfo}

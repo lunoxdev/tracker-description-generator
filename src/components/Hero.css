@@ -16,5 +16,5 @@
 }
 
 .hero-title {
-    @apply w-[80%] text-base xl:text-5xl text-center text-pretty font-extrabold uppercase bg-gradient-to-r from-[#6D30FF] via-[#595CFE] to-[#2FB3FE] bg-clip-text text-transparent;
+    @apply w-[80%] text-2xl xl:text-5xl text-center text-pretty font-extrabold uppercase bg-gradient-to-r from-[#6D30FF] via-[#595CFE] to-[#2FB3FE] bg-clip-text text-transparent;
 }
