@@ -114,9 +114,9 @@ const Hero = () => {
         <h1 className="hero-title">Tracker Description Generator</h1>
 
         {/* DESCRIPTION FORM */}
-        <section className="grid grid-cols-5 w-[95%] items-center text-center p-6 rounded-md bg-gradient-to-r from-[#11697f] via-[#3b4f84] to-[#26395f]">
+        <section className="grid grid-cols-1 md:grid-cols-5 w-[95%] items-center text-center p-6 gap-5 rounded-md bg-gradient-to-r from-[#11697f] via-[#3b4f84] to-[#26395f]">
           {/* BRAND */}
-          <div className="flex flex-col items-center space-y-1">
+          <div className="flex flex-col items-center space-y-0 md:space-y-1">
             <input
               type="text"
               value="BRAND"
@@ -127,7 +127,7 @@ const Hero = () => {
           </div>
 
           {/* COUNTRY */}
-          <div className="flex flex-col items-center space-y-3">
+          <div className="flex flex-col items-center space-y-1 md:space-y-3">
             <span className="font-semibold text-lg">COUNTRY</span>
             <select
               value={country}
@@ -143,7 +143,7 @@ const Hero = () => {
           </div>
 
           {/* VERTICAL */}
-         <div className="flex flex-col items-center space-y-3">
+         <div className="flex flex-col items-center space-y-1 md:space-y-3">
             <span className="font-semibold text-lg">VERTICAL</span>
             <input
               type="text"
@@ -154,7 +154,7 @@ const Hero = () => {
           </div>
 
           {/* TRAFFIC SOURCE */}
-          <div className="flex flex-col items-center space-y-3">
+          <div className="flex flex-col items-center space-y-1 md:space-y-3">
             <span className="font-semibold text-lg">TRAFFIC SOURCE</span>
             <input
               type="text"
@@ -165,7 +165,7 @@ const Hero = () => {
           </div>
 
           {/* EXTRA INFO */}
-          <div className="flex flex-col items-center space-y-3">
+          <div className="flex flex-col items-center space-y-1 md:space-y-3">
             <span className="font-semibold text-lg">EXTRA INFO</span>
             <input
               type="text"
