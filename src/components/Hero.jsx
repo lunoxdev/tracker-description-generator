@@ -87,27 +87,29 @@ const Hero = () => {
   return (
     <div className="main-container">
       <img className="background" src={background.src} alt="Background" fetchpriority="high" />
-      <main className="hero-container">
+      <main className="hero-container space-y-5">
         <h1 className="hero-title">Tracker Description Generator</h1>
 
         {/* DESCRIPTION FORM */}
-        <section className="grid grid-cols-5 w-[90%] gap-2 text-center border">
-          {/* Titles of every column */}
+        <section className="grid grid-cols-5 w-[90%] h-1/4 items-center text-center px-5 rounded-xl bg-gradient-to-r from-[#11697f] via-[#3b4f84] to-[#26395f]">
+          {/* BRAND */}
           <div>
             <input
               type="text"
               value="BRAND"
               disabled
-              className="input-label text-center"
+              className="input-label text-center font-semibold"
               />
               <span>Leon</span>
           </div>
+
+          {/* COUNTRY */}
           <div>
-            <span>COUNTRY</span>
+            <span className="font-semibold">COUNTRY</span>
             <select
               value={country}
               onChange={handleCountryChange}
-              className="country-select text-center"
+              className="country-select text-center border bg-[#141B2E] rounded-xl p-1"
             >
               {countries.map((countryObj) => (
                 <option key={countryObj.code} value={countryObj.code}>
@@ -116,8 +118,10 @@ const Hero = () => {
               ))}
             </select>
           </div>
+
+          {/* VERTICAL */}
           <div>
-            <span>VERTICAL</span>
+            <span className="font-semibold">VERTICAL</span>
             <input
               type="text"
               value="CAS"
@@ -125,8 +129,10 @@ const Hero = () => {
               className="input-label text-center"
             />
           </div>
+
+          {/* TRAFFIC SOURCE */}
           <div>
-            <span>TRAFFIC SOURCE</span>
+            <span className="font-semibold">TRAFFIC SOURCE</span>
             <input
               type="text"
               value="PPC"
@@ -134,26 +140,35 @@ const Hero = () => {
               className="input-label text-center"
             />
           </div>
+
+          {/* EXTRA INFO */}
           <div>
-            <span>EXTRA INFO</span>
+            <span className="font-semibold">EXTRA INFO</span>
             <input
               type="text"
               value={extraInfo}
               onChange={handleExtraInfoChange}
               placeholder="Required"
-              className="extra-info-input text-center"
+              className="extra-info-input text-center py-1 border bg-[#141B2E]"
             />
           </div>
         </section>
-        <section className="flex flex-col w-[90%]">
-          <h2>TRACKER DESCRIPTION:</h2>
-          <code>Leon_{country}_CAS_PPC_{trackerDescription}</code>
-          <button onClick={copyToClipboard}>
-            COPY
-          </button>
+
+        {/* TRACKER DESCRIPTION */}
+        <section className="flex flex-col justify-center items-center w-[90%] space-y-5">
+          {/* COPY BUTTON */}
+         <button onClick={copyToClipboard} className="w-1/2 p-3 rounded-xl text-center bg-[#141B2E] flex items-center justify-start">
+          {/* SVG Icon */}
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 15 15" className="mr-2">
+            <path fill="#ffffff" fill-rule="evenodd" d="M1 9.5A1.5 1.5 0 0 0 2.5 11H4v-1H2.5a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5V4H5.5A1.5 1.5 0 0 0 4 5.5v7A1.5 1.5 0 0 0 5.5 14h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 12.5 4H11V2.5A1.5 1.5 0 0 0 9.5 1h-7A1.5 1.5 0 0 0 1 2.5zm4-4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5z" clip-rule="evenodd"/>
+          </svg>
+          {/* Text */}
+          Leon_{country}_CAS_PPC_{trackerDescription}
+        </button>
+
           
           {/* DELETE BUTTON */}
-          <button onClick={clearExtraInfo}>DELETE</button>
+          <button onClick={clearExtraInfo} className="text-black hover:underline">DELETE</button>
         </section>
       </main>
     </div>
