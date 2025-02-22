@@ -8,7 +8,7 @@ const InputField = ({ label, value, onChange, placeholder, disabled }) => {
         onChange={onChange}
         placeholder={placeholder}
         disabled={disabled}
-        className="text-center py-1 border rounded-md bg-[#141B2E]"
+        className="text-center py-1 border-2 border-gray-500 rounded-md bg-[#141B2E]"
       />
     </div>
   );
