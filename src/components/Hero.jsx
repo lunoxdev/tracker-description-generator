@@ -57,6 +57,8 @@ const Hero = () => {
     { name: "WhatsApp" },
     { name: "TG+WA" },
     { name: "Youtuber" },
+    { name: "Display Ads" },
+    { name: "Native Ads" },
   ];
 
   useEffect(() => {
