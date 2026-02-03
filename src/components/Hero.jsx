@@ -55,6 +55,7 @@ const Hero = () => {
     { name: "Telegram" },
     { name: "WhatsApp" },
     { name: "TG+WA" },
+    { name: "Tipster" },
     { name: "Youtuber" },
     { name: "Display Ads" },
     { name: "Native Ads" },
