@@ -17,48 +17,62 @@ const Hero = () => {
 
   const brands = [{ name: "Leon" }, { name: "Slott" }, { name: "Twin" }];
   const countries = [
-    { code: "BR", name: "Brazil" },
+    { code: "AR", name: "Argentina" },
     { code: "AU", name: "Australia" },
-    { code: "DE", name: "Germany" },
+    { code: "BR", name: "Brazil" },
     { code: "FR", name: "France" },
+    { code: "DE", name: "Germany" },
     { code: "GR", name: "Greece" },
     { code: "IN", name: "India" },
     { code: "IT", name: "Italy" },
     { code: "KZ", name: "Kazakhstan" },
     { code: "NZ", name: "New Zealand" },
+    { code: "PL", name: "Poland" },
     { code: "PT", name: "Portugal" },
     { code: "RU", name: "Russia" },
     { code: "SE", name: "Sweden" },
+    { code: "TZ", name: "Tanzania" },
     { code: "TH", name: "Thailand" },
     { code: "TR", name: "Turkey" },
-    { code: "TZ", name: "Tanzania" },
   ];
-  const verticals = [{ name: "CAS" }, { name: "SPB" }, { name: "CAS+SPB" }];
+  const verticals = [
+    { name: "CAS" },
+    { name: "CAS+SPB" },
+    { name: "FWC26" },
+    { name: "SPB" },
+  ];
   const trafficSources = [
     { name: "ASO" },
     { name: "ASO-Android" },
     { name: "ASO-iOS" },
     { name: "Blogger" },
     { name: "Content Marketing" },
+    { name: "Display Ads" },
     { name: "Email" },
+    { name: "Facebook (Organic)" },
+    { name: "FB Ads" },
     { name: "In-App" },
     { name: "Influencer" },
+    { name: "Instagram (Organic)" },
     { name: "Multi-Source" },
+    { name: "Native Ads" },
     { name: "PPC" },
-    { name: "FB Ads" },
     { name: "Push-Notifications" },
     { name: "Retargeting" },
     { name: "SEO" },
     { name: "SMS" },
     { name: "Social-Organic" },
     { name: "Streamer" },
+    { name: "Streamer (Kick)" },
+    { name: "Streamer (Twitch)" },
     { name: "Telegram" },
-    { name: "WhatsApp" },
     { name: "TG+WA" },
+    { name: "Tik Tok Ads" },
+    { name: "Tik Tok (Organic)" },
     { name: "Tipster" },
+    { name: "UAC" },
+    { name: "WhatsApp" },
     { name: "Youtuber" },
-    { name: "Display Ads" },
-    { name: "Native Ads" },
   ];
 
   useEffect(() => {
@@ -79,7 +93,6 @@ const Hero = () => {
   }, []);
 
   useEffect(() => {
-    // Guardar valores en localStorage cuando cambian
     localStorage.setItem("selectedCountry", country);
     localStorage.setItem("extraInfo", extraInfo);
     localStorage.setItem("brand", brand);
@@ -94,11 +107,8 @@ const Hero = () => {
   };
 
   const handleCountryChange = (e) => setCountry(e.target.value);
-
   const handleBrandChange = (e) => setBrand(e.target.value);
-
   const handleVerticalChange = (e) => setVertical(e.target.value);
-
   const handleTrafficSourceChange = (e) => setTrafficSource(e.target.value);
 
   const copyToClipboard = () => {
@@ -106,16 +116,16 @@ const Hero = () => {
       extraInfo.trim() ? `_${trackerDescription}` : ""
     }`;
 
-    if (!fullText.includes("_")) {
-      toast.error('The field "EXTRA INFO" cannot be empty.', {
-        style: { background: "#285a9e", color: "#ffffff" },
-      });
-      return;
-    }
-
     navigator.clipboard.writeText(fullText).then(() => {
-      toast.success("Tracker description copied.", {
-        style: { background: "#285a9e", color: "#ffffff" },
+      toast.success("Copied to clipboard!", {
+        style: {
+          background: "#0e1628",
+          color: "#ffffff",
+          border: "1px solid rgba(33,210,254,0.35)",
+          borderRadius: "10px",
+          fontSize: "14px",
+        },
+        iconTheme: { primary: "#21d2fe", secondary: "#0e1628" },
       });
     });
   };
@@ -123,54 +133,61 @@ const Hero = () => {
   return (
     <div className="main-container">
       <img
-        className="background"
+        className="background opacity-80"
         src={background.src}
         alt="Background"
         fetchpriority="high"
       />
+
+      <div className="card-wrapper">
       <main className="hero-container">
-        <h1 className="hero-title">Tracker Description Generator</h1>
+        <div className="hero-header">
+          <h1 className="hero-title">Tracker Description Generator</h1>
+          <p className="hero-subtitle">
+            Build and copy tracker strings in one click
+          </p>
+        </div>
 
-        <section className="grid grid-cols-1 md:grid-cols-5 w-[95%] items-center text-center p-6 gap-2 rounded-md bg-gradient-to-r from-[#11697f] via-[#3b4f84] to-[#26395f]">
-          <DropDown
-            label={"BRAND"}
-            options={brands}
-            value={brand}
-            onChange={handleBrandChange}
-          />
+        <section className="form-section">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+            <DropDown
+              label="Brand"
+              options={brands}
+              value={brand}
+              onChange={handleBrandChange}
+            />
+            <DropDown
+              label="Country"
+              options={countries}
+              value={country}
+              onChange={handleCountryChange}
+            />
+            <DropDown
+              label="Vertical"
+              options={verticals}
+              value={vertical}
+              onChange={handleVerticalChange}
+            />
+            <DropDown
+              label="Traffic Source"
+              options={trafficSources}
+              value={trafficSource}
+              onChange={handleTrafficSourceChange}
+            />
+          </div>
 
-          <DropDown
-            label={"COUNTRY"}
-            options={countries}
-            value={country}
-            onChange={handleCountryChange}
-          />
-
-          <DropDown
-            label={"VERTICAL"}
-            options={verticals}
-            value={vertical}
-            onChange={handleVerticalChange}
-          />
-
-          <DropDown
-            label={"TRAFFIC SOURCE"}
-            options={trafficSources}
-            value={trafficSource}
-            onChange={handleTrafficSourceChange}
-          />
-
-          <div className="flex flex-col items-center space-y-1 md:space-y-3">
+          <div className="mt-3 md:mt-4">
             <InputField
-              label="EXTRA INFO"
+              label="Extra Info"
               value={extraInfo}
               onChange={handleExtraInfoChange}
-              placeholder="Optional"
+              placeholder="Optional — e.g. campaign name"
             />
           </div>
         </section>
 
-        <section className="flex flex-col justify-center items-center w-full space-y-5">
+        <section className="copy-section">
+          <p className="copy-label">Generated string</p>
           <Button onClick={copyToClipboard}>
             <TrackerDescription
               brand={brand}
@@ -179,25 +196,29 @@ const Hero = () => {
               trafficSource={trafficSource}
               trackerDescription={trackerDescription}
             />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="22"
-              height="22"
-              viewBox="0 0 15 15"
-              className="ml-3"
-            >
-              <path
-                fill="#ffffff"
-                fillRule="evenodd"
-                d="M1 9.5A1.5 1.5 0 0 0 2.5 11H4v-1H2.5a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5V4H5.5A1.5 1.5 0 0 0 4 5.5v7A1.5 1.5 0 0 0 5.5 14h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 12.5 4H11V2.5A1.5 1.5 0 0 0 9.5 1h-7A1.5 1.5 0 0 0 1 2.5zm4-4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5z"
-                clipRule="evenodd"
-              />
-            </svg>
+            <span className="copy-action">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 15 15"
+                className="shrink-0"
+              >
+                <path
+                  fill="currentColor"
+                  fillRule="evenodd"
+                  d="M1 9.5A1.5 1.5 0 0 0 2.5 11H4v-1H2.5a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5V4H5.5A1.5 1.5 0 0 0 4 5.5v7A1.5 1.5 0 0 0 5.5 14h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 12.5 4H11V2.5A1.5 1.5 0 0 0 9.5 1h-7A1.5 1.5 0 0 0 1 2.5zm4-4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span className="text-xs font-bold uppercase tracking-wider">Copy</span>
+            </span>
           </Button>
-
-          <Toaster />
         </section>
+
+        <Toaster position="top-center" />
       </main>
+      </div>
     </div>
   );
 };

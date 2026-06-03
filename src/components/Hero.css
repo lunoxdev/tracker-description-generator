@@ -1,20 +1,111 @@
 @import "tailwindcss";
 
+/* ── Gradient tokens ───────────────────────────────────────────── */
+/* purple #7B2FFF  →  blue #4B6FFF  →  cyan #21d2fe              */
+
 .main-container {
   font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
     Arial, sans-serif;
-
-  @apply flex w-full h-full justify-center items-center;
+  @apply flex w-full min-h-screen justify-center items-center py-10 px-4;
 }
 
 .background {
   @apply fixed top-0 left-0 w-full h-1/2 object-cover;
 }
 
+/* Gradient border wrapper — 1px padding trick */
+.card-wrapper {
+  @apply relative w-full max-w-2xl z-10;
+  padding: 1px;
+  border-radius: 17px;
+  background: linear-gradient(135deg, #7B2FFF 0%, #4B6FFF 55%, #21d2fe 100%);
+  box-shadow:
+    0 0 40px rgba(123, 47, 255, 0.25),
+    0 0 80px rgba(33, 210, 254, 0.1),
+    0 30px 70px rgba(0, 0, 0, 0.55);
+}
+
 .hero-container {
-  @apply flex flex-col w-[90%] xl:w-5xl h-auto z-10 items-center justify-center rounded-2xl p-3 space-y-5 bg-white;
+  @apply relative flex flex-col w-full items-stretch overflow-hidden;
+  border-radius: 16px;
+  background: #0c0a1c;
+}
+
+/* ── Header ────────────────────────────────────────────────────── */
+.hero-header {
+  @apply flex flex-col items-center gap-2 pt-8 pb-6 px-6 md:px-8;
+  background: linear-gradient(160deg, #0f0c24 0%, #160f38 60%, #0d0c22 100%);
+  border-bottom: 1px solid rgba(123, 47, 255, 0.18);
 }
 
 .hero-title {
-  @apply w-[80%] text-2xl xl:text-5xl text-center text-pretty font-extrabold uppercase bg-gradient-to-r from-[#6D30FF] via-[#595CFE] to-[#2FB3FE] bg-clip-text text-transparent;
+  @apply text-2xl sm:text-3xl md:text-4xl text-center font-extrabold uppercase tracking-tight;
+  background: linear-gradient(100deg, #7B2FFF 0%, #5B7FFF 45%, #21d2fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  @apply text-[11px] text-white/30 font-medium tracking-[0.2em] uppercase text-center;
+}
+
+/* ── Form ──────────────────────────────────────────────────────── */
+.form-section {
+  @apply px-5 py-6 md:px-7 md:py-7;
+  background: linear-gradient(170deg, #0f0c25 0%, #130e30 100%);
+}
+
+/* Field labels shared style */
+.field-label {
+  @apply text-[10px] font-bold uppercase tracking-[0.2em] pl-0.5 select-none;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* ── Copy section ──────────────────────────────────────────────── */
+.copy-section {
+  @apply flex flex-col items-center gap-2.5 px-5 pb-7 pt-5 md:px-7;
+  background: linear-gradient(170deg, #0b0920 0%, #09071a 100%);
+  border-top: 1px solid rgba(75, 111, 255, 0.12);
+}
+
+.copy-label {
+  @apply text-[10px] font-bold uppercase tracking-[0.2em] text-white/20 self-start pl-0.5;
+}
+
+.copy-action {
+  @apply flex items-center gap-1.5 shrink-0 transition-all duration-200;
+  background: linear-gradient(100deg, #7B2FFF, #21d2fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.6;
+}
+
+button:hover .copy-action {
+  opacity: 1;
+}
+
+/* ── Custom scrollbar ──────────────────────────────────────────── */
+.dropdown-panel::-webkit-scrollbar {
+  width: 4px;
+}
+
+.dropdown-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dropdown-panel::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #7B2FFF, #21d2fe);
+  border-radius: 99px;
+}
+
+.dropdown-panel::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #9B5FFF, #4BE4FF);
+}
+
+.dropdown-panel {
+  scrollbar-width: thin;
+  scrollbar-color: #6B4FFF transparent;
 }

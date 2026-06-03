@@ -9,7 +9,11 @@ const TrackerDescription = ({
     trackerDescription.trim() ? `_${trackerDescription}` : ""
   }`;
 
-  return <span className="flex-1 text-center truncate">{description}</span>;
+  return (
+    <span className="flex-1 text-left text-sm font-mono font-semibold text-white/90 truncate">
+      {description}
+    </span>
+  );
 };
 
 export default TrackerDescription;
