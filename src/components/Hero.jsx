@@ -143,9 +143,6 @@ const Hero = () => {
       <main className="hero-container">
         <div className="hero-header">
           <h1 className="hero-title">Tracker Description Generator</h1>
-          <p className="hero-subtitle">
-            Build and copy tracker strings in one click
-          </p>
         </div>
 
         <section className="form-section">
